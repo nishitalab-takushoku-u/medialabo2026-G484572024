@@ -1,0 +1,12 @@
+body{
+    background-image: url("https://t3.ftcdn.net/jpg/00/62/51/56/360_F_62515645_JAitHratj1BQVHnxVx9urtHf1xtwDjZM.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    color: orange;
+}
+ul{
+    font-size: 110%;
+}
