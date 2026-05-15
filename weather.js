@@ -13,6 +13,14 @@ console.log("風速 "+data.wind.speed+" 風向 "+data.wind.deg);
 
 }
 
+//検索キー
+let b = document.querySelector('#print');
+b.addEventListener('click',()=>{
+  let k = document.getElementById("city").value;
+  console.log("検索キー: " + k);
+});
+
+
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
 
