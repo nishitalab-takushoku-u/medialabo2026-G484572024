@@ -23,6 +23,57 @@ b.addEventListener('click',()=>{
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+    let body = document.querySelector('body');
+    let div = document.createElement('div');
+    div.setAttribute('id','result');
+    body.insertAdjacentElement('beforeend', div);
+
+    let p = document.createElement('p');
+    div.insertAdjacentElement('beforeend', p);
+
+    let q = document.createElement('q');
+    p.insertAdjacentElement('beforeend', q);
+    q.textContent = '検索結果1件';
+    let u = document.createElement('ul');
+    div.insertAdjacentElement('beforeend', u);
+
+    // let h2 = document.createElement('li');
+    // u.insertAdjacentElement('beforeend', h2);
+    // h2.textContent = data.name + ", " + data.sys.country;
+
+    
+    let li1 = document.createElement('li');
+    li1.textContent = '緯度: ' + data.coord.lon;
+    u.insertAdjacentElement('beforeend', li1);
+
+    let li2 = document.createElement('li');
+    li2.textContent = '経度: ' + data.coord.lat;
+    u.insertAdjacentElement('beforeend', li2);
+
+    let li3 = document.createElement('li');
+    li3.textContent='天気: '+data.weather[0].description;
+    u.insertAdjacentElement('beforeend',li3);
+
+    let li4 = document.createElement('li');
+    li4.textContent='最低気温: '+data.main.temp_min;
+    u.insertAdjacentElement('beforeend',li4);
+
+    let li5 = document.createElement('li');
+    li5.textContent='最高気温: '+data.main.temp_max;
+    u.insertAdjacentElement('beforeend',li5);
+
+    let li6 = document.createElement('li');
+    li6.textContent='湿度: '+data.main.humidity;
+    u.insertAdjacentElement('beforeend',li6);
+
+    let li7 = document.createElement('li');
+    li7.textContent='風速: '+data.wind.speed+' 風向き: '+data.wind.deg;
+    u.insertAdjacentElement('beforeend',li7);
+
+    let li8 = document.createElement('li');
+    li8.textContent='都市名: '+data.name;
+    u.insertAdjacentElement('beforeend',li8);
+
 
 }
 
