@@ -14,11 +14,12 @@ console.log("風速 "+data.wind.speed+" 風向 "+data.wind.deg);
 }
 
 //検索キー
-let b = document.querySelector('#print');
-b.addEventListener('click',()=>{
-  let k = document.getElementById("city").value;
-  console.log("検索キー: " + k);
-});
+// let b = document.querySelector('#print');
+// b.addEventListener('click', ()=>{
+//   let k = document.getElementById("city").value;
+//   console.log("検索キー: " + k);
+//   sendRequest();
+// });
 
 
 // 課題5-1 の関数 printDom() はここに記述すること
@@ -78,18 +79,59 @@ function printDom(data) {
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
+b = document.querySelector('#print');
+b.addEventListener('click',sendRequest);
 
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+const cityid ={
+  "カイロ":360630,
+  "モスクワ":524901,
+  "ヨハネスブルク":993800,
+  "北京":1816670,
+  "東京":1850147,
+  "シンガポール":1880252,
+  "シドニー":2147714,
+  "ロンドン":2643743,
+  "パリ":2968815,
+  "リオデジャネイロ":3451189,
+  "ニューヨーク":5128581,
+  "ロサンゼルス":5368361,
+}
+let i = document.querySelector('#city').value;
+let id = cityid[i];
+if(!id) {
+  let old = document.querySelector('#result');
+  if(old){
+     old.remove();
+  }
+  let body = document.querySelector('body');
+  let div = document.createElement('div');
+  div.setAttribute('id','result');
+  body.insertAdjacentElement('beforeend', div);
+  div.textContent = i + ' という都市は見つかりませんでした';
+  return;
+}
+let url='https://www.nishita-lab.org/web-contents/jsons/openweather/'+id+'.json';
 
+axios.get(url)
+    .then(showResult)
+    .catch(showError)
+    .then(finish);
 }
 
+let pri=true;
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+let data = resp.data;
 
+if(pri) {
+  let div = document.querySelector('div');
+  div.remove();
+}
+printDom(data);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理
