@@ -42,6 +42,10 @@ function printDom(data) {
     // u.insertAdjacentElement('beforeend', h2);
     // h2.textContent = data.name + ", " + data.sys.country;
 
+
+    let li8 = document.createElement('li');
+    li8.textContent='都市名: '+data.name;
+    u.insertAdjacentElement('beforeend',li8);
     
     let li1 = document.createElement('li');
     li1.textContent = '緯度: ' + data.coord.lon;
@@ -71,9 +75,6 @@ function printDom(data) {
     li7.textContent='風速: '+data.wind.speed+' 風向き: '+data.wind.deg;
     u.insertAdjacentElement('beforeend',li7);
 
-    let li8 = document.createElement('li');
-    li8.textContent='都市名: '+data.name;
-    u.insertAdjacentElement('beforeend',li8);
 
 
 }
