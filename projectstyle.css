@@ -6,7 +6,12 @@ body{
 
 h1{
     color: orange;
+    text-shadow: 2px 2px 5px black;
 }
-ul{
-    font-size: 110%;
+li{
+    font-size: 122%;
+}
+button{
+    background-color: yellow;
+    border-radius: 8px;
 }
